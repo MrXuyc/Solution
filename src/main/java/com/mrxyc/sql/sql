@@ -1,0 +1,45 @@
+获取重复邮箱
+select Email from Person group by Email having count(Email)>1;
+select Email from (select Email, count(Email) as num from Person group by Email) as t1 where t1.num >1;
+第n高薪水
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  DECLARE P INT;
+  SET P = N-1;
+  RETURN (
+      select(
+        SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT P,1
+      )
+  );
+END
+
+第二高薪水
+SELECT DISTINCT Salary as SecondHighestSalary FROM Employee ORDER BY Salary DESC LIMIT 1,1;
+SELECT
+    IFNULL(
+      (SELECT DISTINCT Salary
+       FROM Employee
+       ORDER BY Salary DESC
+        LIMIT 1 OFFSET 1),
+    NULL) AS SecondHighestSalary;
+
+
+左连接
+select t1.FirstName, t1.LastName, t2.City, t2.State from Person t1 left join Address t2 on t1.PersonId=t2.PersonId;
+
+子链接 count(distinct b.Score)
+select a.Score as Score, (select count(distinct b.Score) from Scores b where b.Score >= a.Score) as Rank from Scores a order by a.Score  desc;
+
+
+SELECT DISTINCT
+    l1.Num AS ConsecutiveNums
+FROM
+    Logs l1,
+    Logs l2,
+    Logs l3
+WHERE
+    l1.Id = l2.Id - 1
+    AND l2.Id = l3.Id - 1
+    AND l1.Num = l2.Num
+    AND l2.Num = l3.Num
+;
