@@ -1,4 +1,4 @@
-package com.mrxyc.solution.leecodefirststep;
+package com.mrxyc.solution.leecodesecondstep.string;
 
 public class Solution43 {
 

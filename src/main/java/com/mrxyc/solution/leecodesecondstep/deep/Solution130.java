@@ -1,4 +1,4 @@
-package com.mrxyc.solution.leecodefirststep;
+package com.mrxyc.solution.leecodesecondstep.deep;
 
 /**
  * 被围绕的区域
