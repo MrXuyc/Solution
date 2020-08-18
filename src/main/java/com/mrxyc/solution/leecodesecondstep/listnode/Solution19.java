@@ -1,4 +1,4 @@
-package com.mrxyc.solution.leecodefirststep;
+package com.mrxyc.solution.leecodesecondstep.listnode;
 
 import com.mrxyc.common.ListNode;
 

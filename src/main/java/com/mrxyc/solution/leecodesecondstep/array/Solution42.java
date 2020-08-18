@@ -22,7 +22,7 @@ public class Solution42 {
                     break;
                 }
                 //宽度 采用索引位-索引位-1
-                int weight = i - height[stack.peek()] - 1;
+                int weight = i - stack.peek() - 1;
                 //高度 等于两个索引位对应的高度-最小值
                 int high = Math.min(height[i], height[stack.peek()]) - h;
                 //面积则等于 宽度*(高度-已经算过的高度)
